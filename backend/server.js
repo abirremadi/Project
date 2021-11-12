@@ -20,6 +20,9 @@ mongoose.connect(process.env.MONGODB_URL||'mongodb://localhost/fazeti',{
     useUnifiedTopology:true,
 });
 
+
+
+
 app.use('/api/uploads', uploadRouter);
 app.use('/api/users',userRouter);
 app.use('/api/products',productRouter);
@@ -41,8 +44,8 @@ app.get('*',(req,res) => {
     res.sendFile(path.join(__dirname,'../','frontend','build','index.html'));
 });
 
-
 const port = process.env.PORT||8080;
 app.listen(port, () => {
-      console.log(`Serve at http://localhost:${port}`);
+      console.log(`Serve at ${port}`);
     });
+
